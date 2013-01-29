@@ -17,3 +17,13 @@ opposite is indicated.
 
 Problems
 --------
+- __prob1_v1.pddl__: Very simple problem checking the first domain definition. Basically, some blocks have to be stacked in some given order at some given position.
+- __prob2_v2.pddl__: Very simple problem checking domain_v2.pddl. It is basically the statement problem without the max. height restriction.
+- __prob3_v3.pddl__: Statement problem for domain 3.
+- __prob3_v4.pddl__: Statement problem for domain 4.
+- __prob3_v5.pddl__: Statement problem for domain 5.
+- __prob4_v3.pddl__: A more complex problem similar to the statement problem, but max. height restriction is forced.
+- __prob4_v4.pddl__: Max. height restriction forced for domain 4.
+- __prob4_v5.pddl__: Max. height restriction forced for domain 5.
+
+IMPORTANT: Domain V5 problems produce a SEGMENTATION FAULT in LPG...
