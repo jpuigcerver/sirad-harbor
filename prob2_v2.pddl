@@ -48,7 +48,7 @@
        (AT B7 S1)
        (TOP B7)
        (AT_DOCK B7 D1)
-       (AVAILABLE_B B7)
+       (AVAILABLE B7)
        (ON B8 B4)
        (AT B8 S4)
        (TOP B8)
@@ -66,4 +66,4 @@
        (AT_DOCK B11 D1)
 )
 
-(:goal (and (AVAILABLE_B B7) (AVAILABLE_B B3) (AVAILABLE_B B4) (AT_DOCK B3 D1) (AT_DOCK B4 D1) (AT_DOCK B7 D1))))
+(:goal (and (AVAILABLE B7) (AVAILABLE B3) (AVAILABLE B4) (AT_DOCK B3 D1) (AT_DOCK B4 D1) (AT_DOCK B7 D1))))

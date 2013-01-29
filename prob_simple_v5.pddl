@@ -1,5 +1,5 @@
 (define (problem HARBOR_SIMPLE_V05)
-(:domain HARBOR_V5)
+(:domain HARBOR_V05)
 (:objects C1 C2 - crane
 	  B1 - block
           B2 - o_block
