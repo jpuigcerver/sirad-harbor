@@ -1,5 +1,5 @@
 (define (problem HARBOR_P01_V01)
-(:domain HARBOR)
+(:domain HARBOR_V01)
 (:objects C1 C2 - crane B1 B2 B3 B4 B5 B6 B7 B8 B9 B10 B11 - block
           S1 S2 S3 S4 S5 S6 - stack BOT1 BOT2 BOT3 BOT4 BOT5 BOT6 - bottom)
 (:init (EMPTY_CRANE C1)
