@@ -1,7 +1,8 @@
 (define (problem HARBOR_P02_V02)
 (:domain HARBOR_V02)
 (:objects C1 C2 - crane B1 B2 B5 B6 B8 B9 B10 B11 - block B3 B4 B7 - o_block
-          S1 S2 S3 S4 S5 S6 - stack BOT1 BOT2 BOT3 BOT4 BOT5 BOT6 - bottom D1 D2 - dock)
+          S1 S2 S3 S4 S5 S6 - stack BOT1 BOT2 BOT3 BOT4 BOT5 BOT6 - bottom 
+          D1 D2 - dock)
 (:init (EMPTY_CRANE C1)
        (EMPTY_CRANE C2)
        (EMPTY_TAPE)
@@ -66,4 +67,7 @@
        (AT_DOCK B11 D1)
 )
 
-(:goal (and (AVAILABLE B7) (AVAILABLE B3) (AVAILABLE B4) (AT_DOCK B3 D1) (AT_DOCK B4 D1) (AT_DOCK B7 D1))))
+(:goal (and 
+    (AVAILABLE B7) (AVAILABLE B3) (AVAILABLE B4) 
+    (AT_DOCK B3 D1) (AT_DOCK B4 D1) (AT_DOCK B7 D1)
+)))

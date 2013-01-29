@@ -14,7 +14,7 @@
        (empty_tape T1)
        (handle C1 S1)
        (handle C2 S2)
-       (handle C1 T1)
+       (handle C1 T1) ; These were missing
        (handle C2 T1)
        (= (stack_height S1) 1)
        (= (stack_height S2) 1)

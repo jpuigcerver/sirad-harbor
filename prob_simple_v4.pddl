@@ -41,4 +41,6 @@
        (top B2)
 )
 
-(:goal (and (available B2) (at_dock B2 D1))))
+(:goal (and 
+    (available B2) (at_dock B2 D1)
+)))

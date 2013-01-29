@@ -47,4 +47,8 @@
        (TOP B11)
 )
 
-(:goal (and (AT B1 S5)  (AT B2 S5)  (AT B3 S5)  (AT B4 S5)  (AT B5 S5)  (AT B6 S5)  (AT B7 S5)  (AT B8 S5)  (AT B9 S5)  (AT B10 S5)  (AT B11 S5))))
+(:goal (and 
+       (AT B1 S5)  (AT B2 S5)  (AT B3 S5)  (AT B4 S5)  (AT B5 S5)  
+       (AT B6 S5)  (AT B7 S5)  (AT B8 S5)  (AT B9 S5)  (AT B10 S5)  
+       (AT B11 S5)
+)))
