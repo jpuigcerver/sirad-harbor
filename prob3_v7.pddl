@@ -1,14 +1,17 @@
-(define (problem HARBOR_P03_V05)
-(:domain HARBOR_V05)
-(:objects C1 C2 - crane 
-    B1 B2 B5 B6 B8 B9 B10 B11 - block
+(define (problem HARBOR_P03_V07)
+(:domain HARBOR_V07)
+(:objects
+    C1 C2 - crane 
+    B1 B2 B5 B6 B8 B9 B10 B11 - block 
     B3 B4 B7 - o_block
     S1 S2 S3 S4 S5 S6 - stack 
     BOT1 BOT2 BOT3 BOT4 BOT5 BOT6 - bottom 
     D1 D2 - dock
-    T1 - tape)
+    T1 - tape
+    H0 H1 H2 H3 H4 - height)
 (:init 
-    (= (max_height) 3)
+    (= CRANE_VELOCITY 2)
+    (= MAX_HEIGHT 3)
     (EMPTY_CRANE C1)
     (EMPTY_CRANE C2)
     (EMPTY_TAPE T1)
@@ -32,12 +35,6 @@
     (HANDLE C2 S5)
     (HANDLE C2 S6)
     (HANDLE C2 T1)
-    (= (stack_height S1) 2)
-    (= (stack_height S2) 2)
-    (= (stack_height S3) 1)
-    (= (stack_height S4) 2)
-    (= (stack_height S5) 3)
-    (= (stack_height S6) 1)
     (ON B1 BOT1)
     (AT B1 S1)
     (AT_DOCK B1 D1)
@@ -81,7 +78,9 @@
 )
 
 (:goal (and 
-    (AVAILABLE B7) (AVAILABLE B3) (AVAILABLE B4)
-    (AT_DOCK B3 D1) (AT_DOCK B4 D1) (AT_DOCK B7 D1)
+  (AVAILABLE B7) (AVAILABLE B3) (AVAILABLE B4) 
+  (AT_DOCK B3 D1) (AT_DOCK B4 D1) (AT_DOCK B7 D1)
 ))
+
+(:metric minimize (total-time))
 )
