@@ -92,5 +92,6 @@
   (AVAILABLE B7) (AVAILABLE B3) (AVAILABLE B4) 
   (AT_DOCK B3 D1) (AT_DOCK B4 D1) (AT_DOCK B7 D1)
 ))
-(:metric minimize (total-time)
+
+(:metric minimize (total-time))
 )
