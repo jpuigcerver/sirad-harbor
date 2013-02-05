@@ -157,7 +157,7 @@
        ;;(over all (next_h ?nh ?ch))
        ;;(over all (max_height ?mh))
        ;;(over all (not (next_h ?nh ?mh)))
-       (over all (< (stack_height ?s) (max_height)))
+       ;;(over all (< (stack_height ?s) (max_height)))
    )
    :effect (and
        (at start (empty_crane ?c))
@@ -189,7 +189,7 @@
        ;;(over all (next_h ?nh ?ch))
        ;;(over all (max_height ?mh))
        ;;(over all (not (next_h ?nh ?mh)))
-       (over all (< (stack_height ?s) (max_height)))
+       ;;(over all (< (stack_height ?s) (max_height)))
    )
    :effect (and
        (at end (empty_crane ?c))
@@ -222,7 +222,7 @@
        ;;(over all (next_h ?nh ?ch))
        ;;(over all (max_height ?mh))
        ;;(over all (not (next_h ?nh ?mh)))
-       (over all (< (stack_height ?s) (max_height)))
+       ;;(over all (< (stack_height ?s) (max_height)))
    )
    :effect (and
        (at end (empty_crane ?c))
@@ -255,7 +255,7 @@
        ;;(over all (next_h ?nh ?ch))
        ;;(over all (max_height ?mh))
        ;;(over all (not (next_h ?nh ?mh)))
-       (over all (< (stack_height ?s) (max_height)))
+       ;;(over all (< (stack_height ?s) (max_height)))
    )
    :effect (and
        (at end (empty_crane ?c))

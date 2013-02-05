@@ -1,6 +1,6 @@
 (define (domain HARBOR_V05)
   (:requirements :strips :typing :fluents)
-  (:types block o_block stack crane bottom doc tape)
+  (:types block o_block stack crane bottom dock tape)
   (:predicates (hold ?c - crane ?x - (either block o_block))
   	       (empty_crane ?c - crane)
 	       (empty_tape ?t - tape)
@@ -12,7 +12,7 @@
 	       (at_dock ?x - (either block o_block bottom) ?d - dock)
 	       (handle ?c - crane ?s - (either stack tape))
   )
-  (:functions 
+  (:functions
     (stack_height ?s - stack)
     (max_height)
   )
@@ -173,7 +173,7 @@
     :precondition (and (block_in_tape ?x ?t)
                        (empty_crane ?c)
 		       (handle ?c ?t))
-		       
+
     :effect (and (not (block_in_tape ?x ?t)) (not (empty_crane ?c))
                  (empty_tape ?t) (hold ?c ?x))
   )
@@ -183,7 +183,7 @@
     :precondition (and (empty_tape ?t)
                        (hold ?c ?x)
 		       (handle ?c ?t))
-		       
+
     :effect (and (block_in_tape ?x ?t) (empty_crane ?c)
                  (not (empty_tape ?t)) (not (hold ?c ?x)))
   )
