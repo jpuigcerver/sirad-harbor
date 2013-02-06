@@ -1,9 +1,12 @@
 (define (problem HARBOR_P04_V03)
 (:domain HARBOR_V03)
-(:objects C1 C2 - crane B1 B2 B5 B6 B8 B9 B10 - block B3 B4 B7 - o_block
-          S1 S2 S3 S4 S5 S6 - stack BOT1 BOT2 BOT3 BOT4 BOT5 BOT6 - bottom D1 D2 - dock
+(:objects C1 C2 - crane B1 B2 B5 B6 B8 B9 B10 - block
+          B3 B4 B7 - o_block
+          S1 S2 S3 S4 S5 S6 - stack
+          BOT1 BOT2 BOT3 BOT4 BOT5 BOT6 - bottom
+          D1 D2 - dock
 	  H0 H1 H2 H3 H4 - height)
-(:init 
+(:init
        (MAX_HEIGHT H2)
        (NEXT_H H1 H0)
        (NEXT_H H2 H1)
@@ -90,4 +93,8 @@
        (AT_DOCK B10 D1)
 )
 
-(:goal (and (AVAILABLE B7) (AVAILABLE B3) (AVAILABLE B4) (AT_DOCK B3 D1) (AT_DOCK B4 D1) (AT_DOCK B7 D1))))
+(:goal (and
+    (AVAILABLE B7) (AVAILABLE B3) (AVAILABLE B4)
+    (AT_DOCK B3 D1) (AT_DOCK B4 D1) (AT_DOCK B7 D1)
+))
+)
