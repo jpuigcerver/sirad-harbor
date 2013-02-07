@@ -1,0 +1,25 @@
+
+; Version LPG-td-1.0
+; Seed 34874504
+; Command line: ../lpg-td-1.0 -f prob3_v7.pddl -o domain_v7.pddl -n 10 
+; Problem prob3_v7.pddl
+; Time 0.36
+; Search time 0.17
+; Parsing time 0.02
+; Mutex time 0.15
+; MakeSpan 10.00
+
+0.0003:   (PICK-FROM-STACK-BO B2 B3 S5 C2 D2) [1.0000]
+1.0005:   (PUT-ON-STACK-BB B2 B6 S6 C2 D2) [1.0000]
+2.0008:   (PICK-FROM-STACK-OB B3 B5 S5 C2 D2) [1.0000]
+3.0010:   (PUT-ON-TAPE B3 C2 T1) [1.0000]
+4.0012:   (PICK-FROM-TAPE B3 C1 T1) [1.0000]
+5.0015:   (PUT-ON-STACK-OB B3 B11 S3 C1 D1) [1.0000]
+4.0017:   (PICK-FROM-STACK-BO B8 B4 S4 C2 D2) [1.0000]
+5.0020:   (PUT-ON-STACK-BB B8 B2 S6 C2 D2) [1.0000]
+6.0023:   (PICK-FROM-STACK-OB B4 BOT4 S4 C2 D2) [1.0000]
+7.0025:   (PUT-ON-TAPE B4 C2 T1) [1.0000]
+8.0028:   (PICK-FROM-TAPE B4 C1 T1) [1.0000]
+9.0030:   (PUT-ON-STACK-OB B4 B10 S2 C1 D1) [1.0000]
+
+

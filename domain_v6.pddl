@@ -272,7 +272,7 @@
    :parameters (
        ?x - (either block o_block) ?c - crane ?t - tape
    )
-   :duration (= ?duration 1)
+   :duration (= ?duration 3)
    :condition (and
        (over all (block_in_tape ?x ?t))
        (over all (empty_crane ?c))
@@ -291,7 +291,7 @@
    :parameters (
        ?x - (either block o_block) ?c - crane ?t - tape
    )
-   :duration (= ?duration 1)
+   :duration (= ?duration 3)
    :condition (and
        (over all (empty_tape ?t))
        (over all (hold ?c ?x))

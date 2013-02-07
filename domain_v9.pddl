@@ -1,4 +1,4 @@
-(define (domain HARBOR_V08)
+(define (domain HARBOR_V09)
   (:requirements :strips :typing :durative-actions :fluents)
   (:types block o_block stack crane dock tape)
   (:predicates
@@ -8,12 +8,15 @@
       (block_in_tape ?x - (either block o_block) ?t - tape)
       (available ?x - o_block)
       (on ?x - (either o_block block) ?y - (either o_block block stack) )
-      (top ?x - (either block stack o_block))
-      (at_stack ?x - (either block o_block stack) ?s - stack)
+      (top ?x - (either block stack o_block) ?s - stack)
       (at_dock ?x - (either block o_block stack) ?d - dock)
       (handle ?c - crane ?s - (either stack tape))
   )
   (:functions
+      (crane_speed ?c - crane)
+      (crane_height ?c - crane)
+      (tape_length ?t - tape)
+      (tape_speed ?t - tape)
       (max_height)
       (stack_height ?s - stack)
   )
@@ -25,12 +28,13 @@
        ?x - o_block ?y - (either o_block block stack) ?s - stack
        ?c - crane ?d - dock
    )
-   :duration (= ?duration 1)
+   :duration (= ?duration 
+       (/ (* (- (crane_height ?c) (stack_height ?s)) 2) (crane_speed ?c))
+   )
    :condition (and
        (over all (empty_crane ?c))
        (over all (handle ?c ?s))
-       (over all (at_stack ?x ?s))
-       (over all (top ?x))
+       (over all (top ?x ?s))
        (over all (on ?x ?y))
        (over all (at_dock ?x ?d))
    )
@@ -38,10 +42,9 @@
        (at end (not (empty_crane ?c)))
        (at end (hold ?c ?x))
        (at end (not (on ?x ?y)))
-       (at end (not (at_stack ?x ?s)))
-       (at end (not (top ?x)))
+       (at end (not (top ?x ?s)))
        (at end (not (available ?x)))
-       (at end (top ?y))
+       (at end (top ?y ?s))
        (at end (not (at_dock ?x ?d)))
        (at end (decrease (stack_height ?s) 1))
    )
@@ -52,12 +55,13 @@
    :parameters (
        ?x - block ?y - (either block stack) ?s - stack ?c - crane ?d - dock
    )
-   :duration (= ?duration 1)
+   :duration (= ?duration 
+       (/ (* (- (crane_height ?c) (stack_height ?s)) 2) (crane_speed ?c))
+   )
    :condition (and
        (over all (empty_crane ?c))
        (over all (handle ?c ?s))
-       (over all (at_stack ?x ?s))
-       (over all (top ?x))
+       (over all (top ?x ?s))
        (over all (on ?x ?y))
        (over all (at_dock ?x ?d))
     )
@@ -65,9 +69,8 @@
        (at end (not (empty_crane ?c)))
        (at end (hold ?c ?x))
        (at end (not (on ?x ?y)))
-       (at end (not (at_stack ?x ?s)))
-       (at end (not (top ?x)))
-       (at end (top ?y))
+       (at end (not (top ?x ?s)))
+       (at end (top ?y ?s))
        (at end (not (at_dock ?x ?d)))
        (at end (decrease (stack_height ?s) 1))
     )
@@ -78,12 +81,13 @@
    :parameters (
        ?x - block ?y - o_block ?s - stack ?c - crane ?d - dock
    )
-   :duration (= ?duration 1)
+   :duration (= ?duration 
+       (/ (* (- (crane_height ?c) (stack_height ?s)) 2) (crane_speed ?c))
+   )
    :condition (and
        (over all (empty_crane ?c))
        (over all (handle ?c ?s))
-       (over all (at_stack ?x ?s))
-       (over all (top ?x))
+       (over all (top ?x ?s))
        (over all (on ?x ?y))
        (over all (at_dock ?x ?d))
    )
@@ -91,9 +95,8 @@
        (at end (not (empty_crane ?c)))
        (at end (hold ?c ?x))
        (at end (not (on ?x ?y)))
-       (at end (not (at_stack ?x ?s)))
-       (at end (not (top ?x)))
-       (at end (top ?y))
+       (at end (not (top ?x ?s)))
+       (at end (top ?y ?s))
        (at end (not (at_dock ?x ?d)))
        (at end (available ?y))
        (at end (decrease (stack_height ?s) 1))
@@ -105,12 +108,13 @@
    :parameters (
        ?x - block ?y - (either block stack) ?s - stack ?c - crane ?d - dock
    )
-   :duration (= ?duration 1)
+   :duration (= ?duration 
+       (/ (* (- (crane_height ?c) (stack_height ?s)) 2) (crane_speed ?c))
+   )
    :condition (and
        (over all (hold ?c ?x))
        (over all (handle ?c ?s))
-       (over all (top ?y))
-       (over all (at_stack ?y ?s))
+       (over all (top ?y ?s))
        (over all (at_dock ?y ?d))
        (over all (< (stack_height ?s) (max_height)))
    )
@@ -118,9 +122,8 @@
        (at end (empty_crane ?c))
        (at end (not (hold ?c ?x)))
        (at end (on ?x ?y))
-       (at end (at_stack ?x ?s))
-       (at end (top ?x))
-       (at end (not (top ?y)))
+       (at end (top ?x ?s))
+       (at end (not (top ?y ?s)))
        (at end (at_dock ?x ?d))
        (at end (increase (stack_height ?s) 1))
    )
@@ -132,12 +135,13 @@
        ?x - o_block ?y - (either o_block block stack) ?s - stack
        ?c - crane ?d - dock
    )
-   :duration (= ?duration 1)
+   :duration (= ?duration 
+       (/ (* (- (crane_height ?c) (stack_height ?s)) 2) (crane_speed ?c))
+   )
    :condition (and
        (over all (hold ?c ?x))
        (over all (handle ?c ?s))
-       (over all (top ?y))
-       (over all (at_stack ?y ?s))
+       (over all (top ?y ?s))
        (over all (at_dock ?y ?d))
        (over all (< (stack_height ?s) (max_height)))
    )
@@ -145,9 +149,8 @@
        (at end (empty_crane ?c))
        (at end (not (hold ?c ?x)))
        (at end (on ?x ?y))
-       (at end (at_stack ?x ?s))
-       (at end (top ?x))
-       (at end (not (top ?y)))
+       (at end (top ?x ?s))
+       (at end (not (top ?y ?s)))
        (at end (at_dock ?x ?d))
        (at end (available ?x))
        (at end (increase (stack_height ?s) 1))
@@ -159,12 +162,13 @@
    :parameters (
        ?x - block ?y - o_block ?s - stack ?c - crane ?d - dock
    )
-   :duration (= ?duration 1)
+   :duration (= ?duration 
+       (/ (* (- (crane_height ?c) (stack_height ?s)) 2) (crane_speed ?c))
+   )
    :condition (and
        (over all (hold ?c ?x))
        (over all (handle ?c ?s))
-       (over all (top ?y))
-       (over all (at_stack ?y ?s))
+       (over all (top ?y ?s))
        (over all (at_dock ?y ?d))
        (over all (< (stack_height ?s) (max_height)))
    )
@@ -172,9 +176,8 @@
        (at end (empty_crane ?c))
        (at end (not (hold ?c ?x)))
        (at end (on ?x ?y))
-       (at end (at_stack ?x ?s))
-       (at end (top ?x))
-       (at end (not (top ?y)))
+       (at end (top ?x ?s))
+       (at end (not (top ?y ?s)))
        (at end (at_dock ?x ?d))
        (at end (increase (stack_height ?s) 1))
    )
@@ -185,7 +188,9 @@
    :parameters (
        ?x - (either block o_block) ?c - crane ?t - tape
    )
-   :duration (= ?duration 3)
+   :duration (= ?duration 
+       (/ (/ (tape_length ?t) 2.0) (tape_speed ?t))
+   )
    :condition (and
        (over all (block_in_tape ?x ?t))
        (over all (empty_crane ?c))
@@ -204,7 +209,9 @@
    :parameters (
        ?x - (either block o_block) ?c - crane ?t - tape
    )
-   :duration (= ?duration 3)
+   :duration (= ?duration 
+       (/ (/ (tape_length ?t) 2.0) (tape_speed ?t))
+   )
    :condition (and
        (over all (empty_tape ?t))
        (over all (hold ?c ?x))
