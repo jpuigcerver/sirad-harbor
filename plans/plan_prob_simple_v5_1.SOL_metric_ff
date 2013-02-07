@@ -1,0 +1,37 @@
+
+ff: parsing domain file
+domain 'HARBOR_V05' defined
+ ... done.
+ff: parsing problem file
+problem 'HARBOR_SIMPLE_V05' defined
+ ... done.
+
+
+no metric specified. plan length assumed.
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is EHC, if that fails then  best-first on 1*g(s) + 5*h(s) where
+    metric is  plan length
+
+Cueing down from goal distance:    4 into depth [1][2]
+                                   2            [1]
+                                   1            [1]
+                                   0            
+
+ff: found legal plan as follows
+
+step    0: PICK-FROM-STACK-OB B2 BOT2 S2 C2 D2
+        1: PUT-ON-TAPE B2 C2 T1
+        2: PICK-FROM-TAPE B2 C1 T1
+        3: PUT-ON-STACK-OB B2 B1 S1 C1 D1
+     
+
+time spent:    0.00 seconds instantiating 72 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 34 facts and 60 actions
+               0.00 seconds creating final representation with 30 relevant facts, 4 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 5 states, to a max depth of 2
+               0.00 seconds total time
+

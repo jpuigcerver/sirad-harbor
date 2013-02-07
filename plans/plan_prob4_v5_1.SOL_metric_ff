@@ -1,0 +1,57 @@
+
+ff: parsing domain file
+domain 'HARBOR_V05' defined
+ ... done.
+ff: parsing problem file
+problem 'HARBOR_P04_V05' defined
+ ... done.
+
+
+no metric specified. plan length assumed.
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is EHC, if that fails then  best-first on 1*g(s) + 5*h(s) where
+    metric is  plan length
+
+Cueing down from goal distance:   10 into depth [1]
+                                   9            [1][2]
+                                   8            [1][2]
+                                   7            [1]
+                                   6            [1][2]
+                                   5            [1][2]
+                                   3            [1][2][3][4][5][6][7][8]
+                                   2            [1]
+                                   1            [1]
+                                   0            
+
+ff: found legal plan as follows
+
+step    0: PICK-FROM-STACK-OB B3 B5 S5 C2 D2
+        1: PUT-ON-TAPE B3 C2 T1
+        2: PICK-FROM-TAPE B3 C1 T1
+        3: PUT-ON-STACK-OB B3 B2 S3 C1 D1
+        4: PICK-FROM-STACK-BO B8 B4 S4 C2 D2
+        5: PUT-ON-STACK-BB B8 B5 S5 C2 D2
+        6: PICK-FROM-STACK-OB B4 BOT4 S4 C2 D2
+        7: PUT-ON-TAPE B4 C2 T1
+        8: PICK-FROM-STACK-BB B10 B9 S2 C1 D1
+        9: PICK-FROM-TAPE B4 C2 T1
+       10: PUT-ON-TAPE B10 C1 T1
+       11: PUT-ON-STACK-OB B4 BOT4 S4 C2 D2
+       12: PICK-FROM-TAPE B10 C2 T1
+       13: PUT-ON-STACK-BB B10 B6 S6 C2 D2
+       14: PICK-FROM-STACK-OB B4 BOT4 S4 C2 D2
+       15: PUT-ON-TAPE B4 C2 T1
+       16: PICK-FROM-TAPE B4 C1 T1
+       17: PUT-ON-STACK-OB B4 B9 S2 C1 D1
+     
+
+time spent:    0.00 seconds instantiating 3880 easy, 0 hard action templates
+               0.00 seconds reachability analysis, yielding 304 facts and 3220 actions
+               0.00 seconds creating final representation with 292 relevant facts, 12 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.02 seconds searching, evaluating 65 states, to a max depth of 8
+               0.02 seconds total time
+
